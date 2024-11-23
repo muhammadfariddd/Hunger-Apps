@@ -4,7 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hunger Apps - Restaurant Catalog</title>
-    <link rel="icon" href="./favicon.jpg" />
+    <meta name="theme-color" content="#e74c3c" />
+    <meta name="description" content="Find the best restaurants near you" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/favicon.jpg" />
+    <!-- Font Awesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
 
     <!-- Google Font -->
     <link
@@ -18,8 +26,9 @@
 
     <header>
       <nav class="nav">
-        <button id="nav__toggle">☰</button>
+        <button id="nav__toggle" aria-label="Toggle navigation">☰</button>
         <h1 class="nav__title">Hunger Apps</h1>
+
         <ul class="nav__list">
           <li class="nav__item"><a href="#/">Home</a></li>
           <li class="nav__item"><a href="#/favorite">Favorite</a></li>
@@ -36,6 +45,6 @@
       <p>Copyright &copy; 2024 - Hunger Apps</p>
     </footer>
 
-    <script src="scripts/index.js"></script>
+    <script src="app.bundle.js"></script>
   </body>
 </html>

@@ -1,21 +1,43 @@
 const DrawerInitiator = {
   init({ button, drawer, content }) {
+    // Validasi elemen
+    if (!button || !drawer) {
+      console.error('Button or drawer not found');
+      return;
+    }
+
     button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
       this._toggleDrawer(event, drawer);
+      console.log('Toggle clicked'); // debugging
     });
 
-    content.addEventListener('click', (event) => {
-      this._closeDrawer(event, drawer);
+    // Tutup drawer saat klik di luar
+    document.addEventListener('click', (event) => {
+      if (
+        !drawer.contains(event.target) &&
+        !button.contains(event.target) &&
+        drawer.classList.contains('open')
+      ) {
+        this._closeDrawer(event, drawer);
+      }
+    });
+
+    // Tutup drawer saat klik link
+    drawer.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        this._closeDrawer(null, drawer);
+      });
     });
   },
 
   _toggleDrawer(event, drawer) {
-    event.stopPropagation();
     drawer.classList.toggle('open');
+    console.log('Drawer state:', drawer.classList.contains('open')); // debugging
   },
 
   _closeDrawer(event, drawer) {
-    event.stopPropagation();
     drawer.classList.remove('open');
   },
 };

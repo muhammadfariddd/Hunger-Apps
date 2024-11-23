@@ -8,6 +8,11 @@ class App {
     this._drawer = drawer;
     this._content = content;
 
+    // Tambahkan validasi
+    if (!this._button) console.error('Button not found');
+    if (!this._drawer) console.error('Drawer not found');
+    if (!this._content) console.error('Content not found');
+
     this._initialAppShell();
   }
 
