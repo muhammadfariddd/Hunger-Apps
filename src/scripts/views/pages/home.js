@@ -1,4 +1,3 @@
-import CONFIG from '../../globals/config';
 import { createItemTemplate } from '../template-creator';
 import RestoDbSource from '../../data/data-source';
 

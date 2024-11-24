@@ -1,5 +1,4 @@
 import UrlParser from '../../routes/url-parser';
-import CONFIG from '../../globals/config';
 import API_ENDPOINT from '../../globals/api-endpoint';
 import {
   createDetailTemplate,
@@ -79,7 +78,7 @@ const Detail = {
           // Reset form
           reviewForm.reset();
         } catch (error) {
-          alert(`Failed to submit review: ${  error.message}`);
+          alert(`Failed to submit review: ${error.message}`);
         }
       });
 

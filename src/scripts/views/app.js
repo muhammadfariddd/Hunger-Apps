@@ -1,6 +1,6 @@
-import DrawerInitiator from '../utils/drawer-initiator';
-import UrlParser from '../routes/url-parser';
-import routes from '../routes/routes';
+import DrawerInitiator from "../utils/drawer-initiator";
+import UrlParser from "../routes/url-parser";
+import routes from "../routes/routes";
 
 class App {
   constructor({ button, drawer, content }) {
@@ -9,11 +9,20 @@ class App {
     this._content = content;
 
     // Tambahkan validasi
-    if (!this._button) console.error('Button not found');
-    if (!this._drawer) console.error('Drawer not found');
-    if (!this._content) console.error('Content not found');
+    if (!this._button) console.error("Button not found");
+    if (!this._drawer) console.error("Drawer not found");
+    if (!this._content) console.error("Content not found");
 
+    this._initSkipLink();
     this._initialAppShell();
+  }
+
+  _initSkipLink() {
+    const skipLink = document.querySelector(".skip-link");
+    skipLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      document.querySelector("#maincontent").focus();
+    });
   }
 
   _initialAppShell() {
