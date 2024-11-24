@@ -1,6 +1,5 @@
 const DrawerInitiator = {
-  init({ button, drawer, content }) {
-    // Validasi elemen
+  init({ button, drawer }) {
     if (!button || !drawer) {
       console.error('Button or drawer not found');
       return;
@@ -10,7 +9,6 @@ const DrawerInitiator = {
       event.preventDefault();
       event.stopPropagation();
       this._toggleDrawer(event, drawer);
-      console.log('Toggle clicked'); // debugging
     });
 
     // Tutup drawer saat klik di luar
@@ -34,7 +32,6 @@ const DrawerInitiator = {
 
   _toggleDrawer(event, drawer) {
     drawer.classList.toggle('open');
-    console.log('Drawer state:', drawer.classList.contains('open')); // debugging
   },
 
   _closeDrawer(event, drawer) {

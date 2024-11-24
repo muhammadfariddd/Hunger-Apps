@@ -1,5 +1,4 @@
-import CONFIG from "../globals/config"; // Tambahkan import ini
-import API_ENDPOINT from "../globals/api-endpoint";
+import API_ENDPOINT from '../globals/api-endpoint';
 
 class RestoDbSource {
   static async home() {
@@ -13,13 +12,13 @@ class RestoDbSource {
       const responseJson = await response.json();
       return responseJson.restaurants;
     } catch (error) {
-      console.error("Error fetching restaurants:", error);
+      console.error('Error fetching restaurants:', error);
       if (!navigator.onLine) {
         throw new Error(
-          "Tidak ada koneksi internet. Silakan periksa koneksi Anda."
+          'Tidak ada koneksi internet. Silakan periksa koneksi Anda.'
         );
       }
-      throw new Error("Gagal memuat data restoran. Silakan coba lagi.");
+      throw new Error('Gagal memuat data restoran. Silakan coba lagi.');
     }
   }
 
@@ -34,13 +33,13 @@ class RestoDbSource {
       const responseJson = await response.json();
       return responseJson.restaurant;
     } catch (error) {
-      console.error("Error fetching restaurant detail:", error);
+      console.error('Error fetching restaurant detail:', error);
       if (!navigator.onLine) {
         throw new Error(
-          "Tidak ada koneksi internet. Silakan periksa koneksi Anda."
+          'Tidak ada koneksi internet. Silakan periksa koneksi Anda.'
         );
       }
-      throw new Error("Gagal memuat detail restoran. Silakan coba lagi.");
+      throw new Error('Gagal memuat detail restoran. Silakan coba lagi.');
     }
   }
 }
