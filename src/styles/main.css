@@ -437,6 +437,11 @@ footer {
 }
 
 @media screen and (max-width: 767px) {
+  .restaurants {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+  }
+
   .nav__list.open {
     display: flex !important;
     flex-direction: column;

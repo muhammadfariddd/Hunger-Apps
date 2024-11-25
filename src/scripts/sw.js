@@ -1,9 +1,9 @@
-import { precacheAndRoute } from "workbox-precaching";
-import { registerRoute } from "workbox-routing";
-import { StaleWhileRevalidate, CacheFirst } from "workbox-strategies";
-import { ExpirationPlugin } from "workbox-expiration";
-import { CacheableResponsePlugin } from "workbox-cacheable-response";
-import CONFIG from "./globals/config";
+import { precacheAndRoute } from 'workbox-precaching';
+import { registerRoute } from 'workbox-routing';
+import { StaleWhileRevalidate, CacheFirst } from 'workbox-strategies';
+import { ExpirationPlugin } from 'workbox-expiration';
+import { CacheableResponsePlugin } from 'workbox-cacheable-response';
+import CONFIG from './globals/config';
 
 // Do precaching
 precacheAndRoute(self.__WB_MANIFEST);
@@ -27,7 +27,7 @@ registerRoute(
 
 // Cache images
 registerRoute(
-  ({ request }) => request.destination === "image",
+  ({ request }) => request.destination === 'image',
   new CacheFirst({
     cacheName: CONFIG.IMAGE_CACHE_NAME,
     plugins: [
@@ -44,8 +44,8 @@ registerRoute(
 
 // Cache pages
 registerRoute(
-  ({ request }) => request.mode === "navigate",
+  ({ request }) => request.mode === 'navigate',
   new StaleWhileRevalidate({
-    cacheName: "pages",
+    cacheName: 'pages',
   })
 );
