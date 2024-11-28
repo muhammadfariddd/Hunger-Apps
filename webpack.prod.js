@@ -40,9 +40,7 @@ module.exports = merge(common, {
         },
         {
           urlPattern: ({ url }) =>
-            url.href.startsWith(
-              "https://restaurant-api.dicoding.dev/images/large/"
-            ),
+            url.href.startsWith("https://restaurant-api.dicoding.dev/images/"),
           handler: "StaleWhileRevalidate",
           options: {
             cacheName: "restaurant-image-api",
