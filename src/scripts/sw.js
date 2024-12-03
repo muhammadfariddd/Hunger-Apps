@@ -1,13 +1,13 @@
-import { precacheAndRoute } from "workbox-precaching";
-import { registerRoute } from "workbox-routing";
+import { precacheAndRoute } from 'workbox-precaching';
+import { registerRoute } from 'workbox-routing';
 import {
   StaleWhileRevalidate,
   CacheFirst,
   NetworkFirst,
-} from "workbox-strategies";
-import { ExpirationPlugin } from "workbox-expiration";
-import { CacheableResponsePlugin } from "workbox-cacheable-response";
-import CONFIG from "./globals/config";
+} from 'workbox-strategies';
+import { ExpirationPlugin } from 'workbox-expiration';
+import { CacheableResponsePlugin } from 'workbox-cacheable-response';
+import CONFIG from './globals/config';
 
 // Precache app shell dan assets statis
 precacheAndRoute(self.__WB_MANIFEST);
@@ -31,7 +31,7 @@ registerRoute(
 
 // Cache gambar dengan Cache First strategy
 registerRoute(
-  ({ request }) => request.destination === "image",
+  ({ request }) => request.destination === 'image',
   new CacheFirst({
     cacheName: CONFIG.IMAGE_CACHE_NAME,
     plugins: [
@@ -49,9 +49,9 @@ registerRoute(
 // Cache font files
 registerRoute(
   ({ request }) =>
-    request.destination === "font" || request.url.includes("fonts/fontawesome"),
+    request.destination === 'font' || request.url.includes('fonts/fontawesome'),
   new CacheFirst({
-    cacheName: "fonts-cache",
+    cacheName: 'fonts-cache',
     plugins: [
       new CacheableResponsePlugin({
         statuses: [0, 200],
@@ -66,8 +66,8 @@ registerRoute(
 
 // Cache halaman dengan StaleWhileRevalidate
 registerRoute(
-  ({ request }) => request.mode === "navigate",
+  ({ request }) => request.mode === 'navigate',
   new StaleWhileRevalidate({
-    cacheName: "pages-cache",
+    cacheName: 'pages-cache',
   })
 );

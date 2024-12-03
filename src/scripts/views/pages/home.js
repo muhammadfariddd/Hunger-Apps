@@ -8,8 +8,7 @@ const Home = {
         <img
           src="images/heros/hero-image_4.jpg"
           alt="Delicious food spread on a table"
-          class="hero__image"
-          onerror="this.onerror=null; this.src='images/placeholder.jpg';"
+          class="hero__image"zz
         />
       </section>
 

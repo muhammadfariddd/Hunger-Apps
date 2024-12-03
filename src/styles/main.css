@@ -289,6 +289,10 @@ footer {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
+#reviewName {
+  min-height: 44px;
+}
+
 .review-name {
   font-weight: bold;
   color: #e74c3c;
@@ -393,6 +397,7 @@ footer {
 }
 
 .submit-review {
+  min-height: 44px;
   background: #e74c3c;
   color: white;
   border: none;
