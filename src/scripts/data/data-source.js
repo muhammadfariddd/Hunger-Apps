@@ -22,14 +22,6 @@ class RestoDbSource {
       } catch (cacheError) {
         console.error('Error fetching from cache:', cacheError);
       }
-
-      // Jika tidak ada cache, tampilkan pesan error
-      if (!navigator.onLine) {
-        throw new Error(
-          'Tidak ada koneksi internet. Menampilkan data tersimpan.'
-        );
-      }
-      throw new Error('Gagal memuat data restoran. Silakan coba lagi.');
     }
   }
 
@@ -53,13 +45,6 @@ class RestoDbSource {
       } catch (cacheError) {
         console.error('Error fetching from cache:', cacheError);
       }
-
-      if (!navigator.onLine) {
-        throw new Error(
-          'Tidak ada koneksi internet. Menampilkan data tersimpan.'
-        );
-      }
-      throw new Error('Gagal memuat detail restoran. Silakan coba lagi.');
     }
   }
 }

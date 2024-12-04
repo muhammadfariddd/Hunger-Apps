@@ -1,7 +1,6 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
-// const { InjectManifest } = require('workbox-webpack-plugin');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -23,38 +22,9 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    // new InjectManifest({
-    //   swSrc: "./src/scripts/sw.js",
-    //   swDest: "sw.js",
-    // }),
-    new WorkboxWebpackPlugin.GenerateSW({
-      swDest: './sw.bundle.js',
-      runtimeCaching: [
-        {
-          urlPattern: ({ url }) =>
-            url.href.startsWith('https://restaurant-api.dicoding.dev/'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'restaurant-api',
-          },
-        },
-        {
-          urlPattern: ({ url }) =>
-            url.href.startsWith('https://restaurant-api.dicoding.dev/images/'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'restaurant-image-api',
-          },
-        },
-        {
-          urlPattern: ({ url }) =>
-            url.href.startsWith('https://restaurant-api.dicoding.dev/detail/'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'restaurant-detail',
-          },
-        },
-      ],
+    new InjectManifest({
+      swSrc: './src/scripts/sw.js',
+      swDest: 'sw.js',
     }),
   ],
 });

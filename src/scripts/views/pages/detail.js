@@ -18,81 +18,68 @@ const Detail = {
   },
 
   async afterRender() {
-    try {
-      const url = UrlParser.parseActiveUrlWithoutCombiner();
-      const restaurantContainer = document.querySelector('#restaurants');
+    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const restaurantContainer = document.querySelector('#restaurants');
 
-      // Tampilkan loading
-      restaurantContainer.innerHTML = '<loading-indicator></loading-indicator>';
+    // Tampilkan loading
+    restaurantContainer.innerHTML = '<loading-indicator></loading-indicator>';
 
-      const restaurant = await RestoDbSource.detail(url.id);
-      restaurantContainer.innerHTML = createDetailTemplate(restaurant);
+    const restaurant = await RestoDbSource.detail(url.id);
+    restaurantContainer.innerHTML = createDetailTemplate(restaurant);
 
-      // Tambahkan review form ke container yang tepat
-      const reviewFormContainer = document.querySelector(
-        '#reviewFormContainer'
-      );
-      reviewFormContainer.innerHTML = '<review-form></review-form>';
+    // Tambahkan review form ke container yang tepat
+    const reviewFormContainer = document.querySelector('#reviewFormContainer');
+    reviewFormContainer.innerHTML = '<review-form></review-form>';
 
-      // Handle review submission
-      const reviewForm = document.getElementById('reviewForm');
-      reviewForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    // Handle review submission
+    const reviewForm = document.getElementById('reviewForm');
+    reviewForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-        const reviewData = {
-          id: url.id,
-          name: document.getElementById('reviewName').value,
-          review: document.getElementById('reviewText').value,
-        };
+      const reviewData = {
+        id: url.id,
+        name: document.getElementById('reviewName').value,
+        review: document.getElementById('reviewText').value,
+      };
 
-        try {
-          const response = await fetch(API_ENDPOINT.REVIEW, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-Auth-Token': '12345', // Gunakan AUTH_TOKEN dari config
-            },
-            body: JSON.stringify(reviewData),
-          });
+      try {
+        const response = await fetch(API_ENDPOINT.REVIEW, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Auth-Token': '12345', // Gunakan AUTH_TOKEN dari config
+          },
+          body: JSON.stringify(reviewData),
+        });
 
-          if (!response.ok) {
-            throw new Error('Failed to submit review');
-          }
+        if (!response.ok) {
+          throw new Error('Failed to submit review');
+        }
 
-          const result = await response.json();
+        const result = await response.json();
 
-          // Update reviews display
-          const reviewList = document.querySelector('.review-list');
-          reviewList.innerHTML = result.customerReviews
-            .map(
-              (review) => `
+        // Update reviews display
+        const reviewList = document.querySelector('.review-list');
+        reviewList.innerHTML = result.customerReviews
+          .map(
+            (review) => `
                 <div class="review-item">
                   <p class="review-name">${review.name}</p>
                   <p class="review-date">${review.date}</p>
                   <p class="review-text">${review.review}</p>
                 </div>
               `
-            )
-            .join('');
+          )
+          .join('');
 
-          // Reset form
-          reviewForm.reset();
-        } catch (error) {
-          alert(`Failed to submit review: ${error.message}`);
-        }
-      });
+        // Reset form
+        reviewForm.reset();
+      } catch (error) {
+        alert(`Failed to submit review: ${error.message}`);
+      }
+    });
 
-      await this._renderLikeButton(restaurant);
-    } catch (error) {
-      const restaurantContainer = document.querySelector('#restaurants');
-      restaurantContainer.innerHTML = `
-        <div class="error">
-          <p>Failed to load restaurant detail</p>
-          <p>${error.message}</p>
-          <button onclick="window.history.back()">Back</button>
-        </div>
-      `;
-    }
+    await this._renderLikeButton(restaurant);
   },
 
   async _renderLikeButton(restaurant) {
