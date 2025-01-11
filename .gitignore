@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Dependencies
 node_modules/
 package-lock.json
@@ -75,3 +76,10 @@ Thumbs.db
 
 # Netlify
 .netlify/
+=======
+node_modules
+dist
+babel.config.js
+jest.config.js
+.env
+>>>>>>> 830f8be6b870cd26c773335c3572f04b403cf706

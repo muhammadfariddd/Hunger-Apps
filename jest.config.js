@@ -22,6 +22,7 @@
 // };
 
 // module.exports = config;
+<<<<<<< HEAD
 
 module.exports = {
   testEnvironment: 'jsdom',
@@ -32,3 +33,5 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/src/scripts/tests/__mocks__/styleMock.js',
   },
 };
+=======
+>>>>>>> 830f8be6b870cd26c773335c3572f04b403cf706

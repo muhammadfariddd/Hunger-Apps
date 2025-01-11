@@ -1,5 +1,9 @@
 import { openDB } from 'idb';
+<<<<<<< HEAD
 import CONFIG from '../globals/config.js';
+=======
+import CONFIG from '../globals/config';
+>>>>>>> 830f8be6b870cd26c773335c3572f04b403cf706
 
 const { DATABASE_NAME, DATABASE_VERSION, OBJECT_STORE_NAME } = CONFIG;
 

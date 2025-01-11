@@ -20,9 +20,17 @@ const UrlParser = {
   },
 
   _urlCombiner(splitedUrl) {
+<<<<<<< HEAD
     return (splitedUrl.resource ? `/${splitedUrl.resource}` : '/')
       + (splitedUrl.id ? '/:id' : '')
       + (splitedUrl.verb ? `/${splitedUrl.verb}` : '');
+=======
+    return (
+      (splitedUrl.resource ? `/${splitedUrl.resource}` : '/') +
+      (splitedUrl.id ? '/:id' : '') +
+      (splitedUrl.verb ? `/${splitedUrl.verb}` : '')
+    );
+>>>>>>> 830f8be6b870cd26c773335c3572f04b403cf706
   },
 };
 

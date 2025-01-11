@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb.js';
 import { createItemTemplate } from '../template-creator.js';
+=======
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+import { createItemTemplate } from '../template-creator';
+>>>>>>> 830f8be6b870cd26c773335c3572f04b403cf706
 
 const Favorite = {
   async render() {
