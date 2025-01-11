@@ -289,13 +289,6 @@ footer {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-<<<<<<< HEAD
-=======
-#reviewName {
-  min-height: 44px;
-}
-
->>>>>>> 830f8be6b870cd26c773335c3572f04b403cf706
 .review-name {
   font-weight: bold;
   color: #e74c3c;
@@ -400,10 +393,7 @@ footer {
 }
 
 .submit-review {
-<<<<<<< HEAD
-=======
   min-height: 44px;
->>>>>>> 830f8be6b870cd26c773335c3572f04b403cf706
   background: #e74c3c;
   color: white;
   border: none;
