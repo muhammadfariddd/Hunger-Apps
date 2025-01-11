@@ -80,17 +80,6 @@ export default {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
         },
-<<<<<<< Updated upstream
-        {
-          from: path.resolve(__dirname, 'src/public/images/'),
-          to: path.resolve(__dirname, 'dist/images/'),
-        },
-        {
-          from: path.resolve(__dirname, 'src/public/fonts/fontawesome'),
-          to: path.resolve(__dirname, 'dist/fonts/fontawesome'),
-        },
-=======
->>>>>>> Stashed changes
       ],
     }),
     new BundleAnalyzerPlugin({
