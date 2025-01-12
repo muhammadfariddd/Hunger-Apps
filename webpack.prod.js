@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { merge } from 'webpack-merge';
@@ -14,13 +13,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default merge(common, {
-=======
-const { merge } = require('webpack-merge');
-const common = require('./webpack.common');
-const { InjectManifest } = require('workbox-webpack-plugin');
-
-module.exports = merge(common, {
->>>>>>> 830f8be6b870cd26c773335c3572f04b403cf706
   mode: 'production',
   devtool: 'source-map',
   module: {
@@ -39,7 +31,6 @@ module.exports = merge(common, {
       },
     ],
   },
-<<<<<<< HEAD
   optimization: {
     minimizer: [
       new CssMinimizerPlugin(),
@@ -93,12 +84,6 @@ module.exports = merge(common, {
         }),
       ],
       test: /\.(jpe?g|png)$/i,
-=======
-  plugins: [
-    new InjectManifest({
-      swSrc: './src/scripts/sw.js',
-      swDest: 'sw.js',
->>>>>>> 830f8be6b870cd26c773335c3572f04b403cf706
     }),
   ],
 });
