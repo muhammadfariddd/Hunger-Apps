@@ -15,6 +15,10 @@ const __dirname = path.dirname(__filename);
 export default merge(common, {
   mode: 'production',
   devtool: 'source-map',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].bundle.js',
+  },
   module: {
     rules: [
       {
@@ -37,7 +41,7 @@ export default merge(common, {
       new TerserPlugin({
         terserOptions: {
           compress: {
-            drop_console: true,
+            dropConsole: true,
           },
         },
       }),

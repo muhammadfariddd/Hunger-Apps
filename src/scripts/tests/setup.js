@@ -1,2 +1,2 @@
 import 'fake-indexeddb/auto';
-import 'whatwg-fetch'; 
+import 'whatwg-fetch';

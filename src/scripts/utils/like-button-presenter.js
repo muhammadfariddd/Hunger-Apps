@@ -45,4 +45,4 @@ const LikeButtonPresenter = {
   },
 };
 
-export default LikeButtonPresenter; 
+export default LikeButtonPresenter;

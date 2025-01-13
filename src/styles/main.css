@@ -289,10 +289,14 @@ footer {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
+#reviewName {
+  min-height: 44px;
+}
 .review-name {
   font-weight: bold;
   color: #e74c3c;
   margin-bottom: 0.5rem;
+  min-height: 44px;
 }
 
 .review-date {

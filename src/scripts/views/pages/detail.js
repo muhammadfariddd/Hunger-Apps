@@ -7,7 +7,6 @@ import {
 } from '../template-creator.js';
 import RestoDbSource from '../../data/data-source.js';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb.js';
-import LikeButtonPresenter from '../../utils/like-button-presenter.js';
 
 const Detail = {
   async render() {
@@ -83,6 +82,7 @@ const Detail = {
 
       await this._renderLikeButton(restaurant);
     } catch (error) {
+      const restaurantContainer = document.querySelector('#restaurants');
       restaurantContainer.innerHTML = `
         <div class="error">
           <p>Failed to load restaurant detail</p>

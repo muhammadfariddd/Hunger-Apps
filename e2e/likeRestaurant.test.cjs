@@ -1,5 +1,7 @@
 /* global Feature, Scenario, Before, locate */
 
+const { assert } = require('chai');
+
 Feature('Liking Restaurants');
 
 Before(({ I }) => {
@@ -37,4 +39,6 @@ Scenario('liking and unliking one restaurant', async ({ I }) => {
 
   I.amOnPage('/#/favorite');
   I.see('Tidak ada restoran favorit', '.restaurant-item__not__found');
-}); 
+});
+
+module.exports = {};

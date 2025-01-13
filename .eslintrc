@@ -2,7 +2,8 @@
   "env": {
     "browser": true,
     "es2021": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {
@@ -10,6 +11,23 @@
     "sourceType": "module"
   },
   "rules": {
-    "linebreak-style": ["error", "unix"]
-  }
+    "linebreak-style": ["error", "unix"],
+    "camelcase": ["error", { "properties": "never" }]
+  },
+  "globals": {
+    "Feature": "readonly",
+    "Scenario": "readonly",
+    "Before": "readonly",
+    "locate": "readonly",
+    "assert": "readonly",
+    "actor": "readonly"
+  },
+  "overrides": [
+    {
+      "files": ["e2e/**/*.cjs"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
 } 

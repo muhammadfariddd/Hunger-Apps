@@ -20,15 +20,15 @@ const createDetailTemplate = (restaurant) => `
       <h4>Menu Makanan</h4>
       <ul>
         ${restaurant.menus.foods
-          .map((food) => `<li>${food.name}</li>`)
-          .join('')}
+    .map((food) => `<li>${food.name}</li>`)
+    .join('')}
       </ul>
       
       <h4>Menu Minuman</h4>
       <ul>
         ${restaurant.menus.drinks
-          .map((drink) => `<li>${drink.name}</li>`)
-          .join('')}
+    .map((drink) => `<li>${drink.name}</li>`)
+    .join('')}
       </ul>
       
       <h4>Rating</h4>
@@ -38,16 +38,16 @@ const createDetailTemplate = (restaurant) => `
         <h4>Customer Reviews</h4>
         <div class="review-list">
           ${restaurant.customerReviews
-            .map(
-              (review) => `
+    .map(
+      (review) => `
                 <div class="review-item">
                   <p class="review-name">${review.name}</p>
                   <p class="review-date">${review.date}</p>
                   <p class="review-text">${review.review}</p>
                 </div>
               `
-            )
-            .join('')}
+    )
+    .join('')}
         </div>
         <div id="reviewFormContainer"></div>
       </div>

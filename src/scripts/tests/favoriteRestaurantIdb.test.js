@@ -12,7 +12,10 @@ describe('Favorite Restaurant Idb Test', () => {
   };
 
   afterEach(async () => {
-    await FavoriteRestaurantIdb.deleteRestaurant(testRestaurant.id);
+    const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
+    restaurants.forEach(async (restaurant) => {
+      await FavoriteRestaurantIdb.deleteRestaurant(restaurant.id);
+    });
   });
 
   it('should be able to add and get restaurant', async () => {
@@ -37,4 +40,4 @@ describe('Favorite Restaurant Idb Test', () => {
     await expect(FavoriteRestaurantIdb.deleteRestaurant('non-existent-id'))
       .resolves.not.toThrow();
   });
-}); 
+});

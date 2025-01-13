@@ -11,7 +11,12 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
 
 const FavoriteRestaurantIdb = {
   async getRestaurant(id) {
-    return (await dbPromise).get(OBJECT_STORE_NAME, id);
+    if (!id) {
+      return null;
+    }
+    const db = await dbPromise;
+    const restaurant = await db.get(OBJECT_STORE_NAME, id);
+    return restaurant || null;
   },
 
   async getAllRestaurants() {
@@ -19,11 +24,17 @@ const FavoriteRestaurantIdb = {
   },
 
   async putRestaurant(restaurant) {
-    return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
+    if (!restaurant.id) {
+      throw new Error('restaurant tidak memiliki ID yang valid');
+    }
+
+    const db = await dbPromise;
+    return db.put(OBJECT_STORE_NAME, restaurant);
   },
 
   async deleteRestaurant(id) {
-    return (await dbPromise).delete(OBJECT_STORE_NAME, id);
+    const db = await dbPromise;
+    await db.delete(OBJECT_STORE_NAME, id);
   },
 };
 

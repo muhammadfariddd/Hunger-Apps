@@ -1,21 +1,22 @@
+import { it, expect } from '@jest/globals';
+
 const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
   it('should return the restaurant that has been added', async () => {
-    favoriteRestaurant.putRestaurant({ id: 1 });
-    favoriteRestaurant.putRestaurant({ id: 2 });
+    await favoriteRestaurant.putRestaurant({ id: 1 });
+    await favoriteRestaurant.putRestaurant({ id: 2 });
 
     expect(await favoriteRestaurant.getRestaurant(1))
       .toEqual({ id: 1 });
     expect(await favoriteRestaurant.getRestaurant(2))
       .toEqual({ id: 2 });
     expect(await favoriteRestaurant.getRestaurant(3))
-      .toEqual(undefined);
+      .toBeNull();
   });
 
   it('should refuse a restaurant from being added if it does not have the correct property', async () => {
     const invalidRestaurant = { aProperty: 'property' };
     await expect(favoriteRestaurant.putRestaurant(invalidRestaurant))
-      .rejects
-      .toMatch(/restaurant/);
+      .rejects.toThrow('restaurant tidak memiliki ID yang valid');
   });
 
   it('can return all of the restaurants that have been added', async () => {
@@ -46,4 +47,4 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
   });
 };
 
-export { itActsAsFavoriteRestaurantModel }; 
+export { itActsAsFavoriteRestaurantModel };

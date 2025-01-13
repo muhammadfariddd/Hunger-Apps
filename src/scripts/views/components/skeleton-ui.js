@@ -18,4 +18,4 @@ class SkeletonUI extends HTMLElement {
   }
 }
 
-customElements.define('skeleton-ui', SkeletonUI); 
+customElements.define('skeleton-ui', SkeletonUI);
