@@ -40,8 +40,9 @@ export default merge(common, {
       new CssMinimizerPlugin(),
       new TerserPlugin({
         terserOptions: {
-          compress: {
-            dropConsole: true,
+          compress: true,
+          format: {
+            comments: false,
           },
         },
       }),
