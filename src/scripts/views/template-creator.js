@@ -71,11 +71,13 @@ const createLikedButtonTemplate = () => `
 
 const createItemTemplate = (restaurant) => `
   <div class="restaurant-item">
-    <img class="restaurant-item__image lazyload" 
-      data-src="${CONFIG.SMALL_BASE_IMAGE_URL}${restaurant.pictureId}" 
-      alt="${restaurant.name}"
-      loading="lazy"
-      onerror="this.onerror=null; this.src='./images/placeholder.jpg';">
+    <div class="image-container" style="aspect-ratio: 16/9;">
+      <img class="restaurant-item__image lazyload" 
+        data-src="${CONFIG.SMALL_BASE_IMAGE_URL}${restaurant.pictureId}" 
+        alt="${restaurant.name}"
+        loading="lazy"
+        onerror="this.onerror=null; this.src='./images/placeholder.jpg';">
+    </div>
     <div class="restaurant-item__content">
       <h2 class="restaurant-item__title">
         <a href="/#/detail/${restaurant.id}">${restaurant.name}</a>

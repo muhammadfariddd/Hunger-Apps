@@ -1,0 +1,37 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "jest": true,
+    "serviceworker": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "off",
+    "no-underscore-dangle": "off",
+    "no-restricted-globals": "off",
+    "linebreak-style": "off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-prototype-builtins": "off"
+  },
+  "globals": {
+    "workbox": "readonly",
+    "importScripts": "readonly",
+    "registration": "readonly",
+    "clients": "readonly",
+    "addEventListener": "readonly",
+    "fetch": "readonly",
+    "skipWaiting": "readonly",
+    "Feature": "readonly",
+    "Scenario": "readonly",
+    "Before": "readonly",
+    "locate": "readonly",
+    "assert": "readonly",
+    "actor": "readonly"
+  }
+} 

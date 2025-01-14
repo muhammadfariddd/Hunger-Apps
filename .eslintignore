@@ -1,3 +1,8 @@
 dist/
 node_modules/
-coverage/ 
+coverage/
+dist/**/*.bundle.js
+dist/**/*.js
+dist/workbox-*.js
+dist/sw.bundle.js
+webpack.*.js 

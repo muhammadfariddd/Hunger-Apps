@@ -9,13 +9,18 @@ setCommonPlugins();
 
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
-  tests: './e2e/**/*.test.cjs',
+  tests: 'e2e/**/*.test.cjs',
   output: './output',
   helpers: {
     Puppeteer: {
       url: 'http://localhost:9000',
       show: true,
-      windowSize: '1200x900'
+      windowSize: '1200x900',
+      waitForTimeout: 5000,
+      waitForAction: 500,
+      chrome: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+      }
     }
   },
   include: {
