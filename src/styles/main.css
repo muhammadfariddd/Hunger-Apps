@@ -290,13 +290,17 @@ footer {
 }
 
 #reviewName {
-  min-height: 44px;
+  height: 44px !important;
+  min-height: 44px !important;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  line-height: 1.5;
 }
+
 .review-name {
   font-weight: bold;
   color: #e74c3c;
   margin-bottom: 0.5rem;
-  min-height: 44px;
 }
 
 .review-date {
