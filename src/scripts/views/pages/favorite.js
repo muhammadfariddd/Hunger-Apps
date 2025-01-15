@@ -18,11 +18,7 @@ const Favorite = {
 
     restaurantsContainer.innerHTML = '';
     if (restaurants.length === 0) {
-      restaurantsContainer.innerHTML = `
-        <div class="restaurant-item__not__found">
-          Tidak ada restoran favorit
-        </div>
-      `;
+      restaurantsContainer.innerHTML = '<div class="restaurant-item__not__found">Tidak ada restoran favorit</div>';
       return;
     }
 
